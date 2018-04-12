@@ -133,8 +133,8 @@ u8 jici_flag=0;
 int cansendLast[4]={0,0,0,1};
 int yaokong_fenxi()
 {
-	float max = 140.0, min = 110.0;
-	float center = 150.0,pianzhi = 10.0;
+//	float max = 140.0, min = 110.0;
+	float center = 125.0,pianzhi = 10.0;
 	adc_z = After_filter[0] * 3.3 / 4096 * 100; //Z
 	adc_y = After_filter[1] * 3.3 / 4096 * 100; //Y
 	adc_x = After_filter[2] * 3.3 / 4096 * 100; //X
@@ -143,26 +143,26 @@ int yaokong_fenxi()
 	//------¼ÆËã---------------------------
 	//XÖá
 	if(adc_x>(center+pianzhi))
-		cansend[0] = (adc_x-center-pianzhi)/(292.0-center-pianzhi)*100;
+		cansend[0] = (adc_x-center-pianzhi)/(220.0-center-pianzhi)*100;
 	else
 		if(adc_x<(center-pianzhi))
-			cansend[0] = -(adc_x-center+pianzhi)/(0.3-center+pianzhi)*100;
+			cansend[0] = -(adc_x-center+pianzhi)/(24.8-center+pianzhi)*100;
 		else
 			cansend[0] = 0;
 	//YÖá
 	if(adc_y>(center+pianzhi))
-		cansend[1] = (adc_y-center-pianzhi)/(292.0-center-pianzhi)*100;
+		cansend[1] = (adc_y-center-pianzhi)/(220.0-center-pianzhi)*100;
 	else
 		if(adc_y<(center-pianzhi))
-			cansend[1] = -(adc_y-center+pianzhi)/(0.48-center+pianzhi)*100;
+			cansend[1] = -(adc_y-center+pianzhi)/(24.8-center+pianzhi)*100;
 		else
 			cansend[1] = 0;
 	//ZÖá
 	if(adc_z>(center+pianzhi))
-		cansend[2] = (adc_z-center-pianzhi)/(288.0-center-pianzhi)*100;
+		cansend[2] = (adc_z-center-pianzhi)/(220.0-center-pianzhi)*100;
 	else
 		if(adc_z<(center-pianzhi))
-			cansend[2] = -(adc_z-center+pianzhi)/(0.56-center+pianzhi)*100;
+			cansend[2] = -(adc_z-center+pianzhi)/(26-center+pianzhi)*100;
 		else
 			cansend[2] = 0;
 		
